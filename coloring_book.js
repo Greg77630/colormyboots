@@ -4,10 +4,13 @@ var undo_to_color = "white";
 var undo_stroke_color = "black";
 
 function eventWindowLoaded() {
+    alert("Else");
    get_svg_file();
-  add_coloring_book_events();
+   add_coloring_book_events();
 }
 
+
+function process_key_press
 
 function get_svg_file()
 {
@@ -23,12 +26,16 @@ function get_svg_file()
         alert("My Bad! " + error);
         }
     });*/
+    
     $('#coloring_book_image').load('BlackBlue5Row.svg',function(response, status, xhr){
         if(status == "error"){
             var msg = "Sorry but there was an error: ";
             alert( msg + xhr.status + " " + xhr.statusText );
-        }else add_coloring_book_events();
-    });
+        }else {
+            
+            add_coloring_book_events();
+        }
+    });                                                                                                                                                 
 }
 
 function add_coloring_book_events() {
@@ -76,7 +83,8 @@ function add_coloring_book_events() {
             $(this).attr('style','fill:'+color_chosen);
         }
         });
-
+    
+    
 
     // Add click events for color palette
     $('.color_choice').bind("click", function(event) {
